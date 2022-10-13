@@ -195,7 +195,7 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Binder</span> is a training-free neural-symbolic framework that maps the task input to a program.
+        <span class="dnerf">Binder</span> is a training-free neural-symbolic framework mapping the task input to an executable program.
       </h2>
     </div>
   </div>
@@ -209,16 +209,101 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Though end-to-end neural approaches have recently been dominating NLP tasks in both performance and ease-of-use, they lack interpretability and robustness. We propose Binder, a training-free neural-symbolic framework that maps the task input to a program, which (1) allows binding a unified API of language model (LM) functionalities to a programming language (e.g., SQL, Python) to extend its grammar coverage and thus tackle more diverse questions, (2) adopts an LM as both the program parser and the underlying model called by the API during execution, and (3) requires only a few in-context exemplar annotations. Specifically, we employ GPT-3 Codex as the LM. In the parsing stage, with only a few in-context exemplars, Codex is able to identify the part of the task input that cannot be answerable by the original programming language, correctly generate API calls to prompt Codex to solve the unanswerable part, and identify where to place the API calls while being compatible with the original grammar. In the execution stage, Codex can perform versatile functionalities (e.g., commonsense QA, information extraction) given proper prompts in the API calls. Binder achieves state-of-the-art results on WikiTableQuestions and TabFact datasets, with explicit output programs that benefit human debugging. Note that previous best systems are all finetuned on tens of thousands of task-specific samples, while Binder only uses dozens of annotations as in-context exemplars without any training.
+            Though end-to-end neural approaches have recently been dominating NLP tasks in both performance and ease-of-use, they lack interpretability and robustness. We propose <span class="dnerf">Binder</span>, a training-free neural-symbolic framework that maps the task input to a program, which (1) allows binding a unified API of language model (LM) functionalities to a programming language (e.g., SQL, Python) to extend its grammar coverage and thus tackle more diverse questions, (2) adopts an LM as both the program parser and the underlying model called by the API during execution, and (3) requires only a few in-context exemplar annotations. Specifically, we employ GPT-3 Codex as the LM. In the parsing stage, with only a few in-context exemplars, Codex is able to identify the part of the task input that cannot be answerable by the original programming language, correctly generate API calls to prompt Codex to solve the unanswerable part, and identify where to place the API calls while being compatible with the original grammar. In the execution stage, Codex can perform versatile functionalities (e.g., commonsense QA, information extraction) given proper prompts in the API calls. <span class="dnerf">Binder</span> achieves state-of-the-art results on WikiTableQuestions and TabFact datasets, with explicit output programs that benefit human debugging. Note that previous best systems are all finetuned on tens of thousands of task-specific samples, while <span class="dnerf">Binder</span> only uses dozens of annotations as in-context exemplars without any training.
           </p>
         </div>
       </div>
     </div>
+  </div>
     <!--/ Abstract. -->
 
 </section>
 
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-justified">
+          <p>
+              [Video]
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--/ Video. -->
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+              <span class="dnerf">Binder</span> is a training-free neural-symbolic framework that maps the task input to an executable program.
+            <span class="dnerf">Binder</span> first prompts Codex to parse a question input into a <span class="dnerf">Binder</span> program, in which Codex has to decide (1) which parts in the input can be converted to the target programming language (<span style="color:dimgrey;">grey clause</span> in figure), (2) the corresponding task API calls (<span style="color: royalblue">blue clause</span> in figure) to prompt Codex to resolve the other parts, and (3) where to insert the API calls in the <span class="dnerf">Binder</span> program.
+            Next, <span class="dnerf">Binder</span> prompts Codex again to generate answers to the task API calls (given the generated task prompts), integrates the generated results back to the programming language, and executes the resulting programming language expression to derive the final answer.
+            In this way, <span class="dnerf">Binder</span> enables flexible functionality integration to the programming language to improve its grammar coverage while requiring only few-shot exemplar annotations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <img src="static/images/intro.png"> <!-- To .gif format-->
+  </div>
+    <!--/ Overview. -->
+
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">Binder</span> achieves SOTA or comparable performance with <strong>only dozens of program annotations</strong> on three benchmarks!
+          </p>
+        <ul>
+          <li>Achieve SOTA on WikiTableQuestions.</li>
+          <li>Achieve SOTA on TabFact.</li>
+          <li>Outperform finetuned baselines on MultiModalQA. </li>
+        </ul>
+        <img src="static/images/exp_results.png">
+        <p>
+            Further, <span class="dnerf">Binder</span> is much more robust to large or noisy inputs than the end-to-end manner.
+        </p>
+        <img src="static/images/analysis.png">
+        </div>
+      </div>
+    </div>
+  </div>
+    <!--/ Results. -->
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Examples. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">More <span class="dnerf">Binder</span> Program Examples</h2>
+      </div>
+    </div>
+  </div>
+    <!--/ Examples. -->
+
+</section>
 
 
 <section class="section" id="BibTeX">
