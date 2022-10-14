@@ -248,7 +248,6 @@
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
           <p>
-              <span class="dnerf">Binder</span> is a training-free neural-symbolic framework that maps the task input to an executable program.
             <span class="dnerf">Binder</span> first prompts Codex to parse a question input into a <span class="dnerf">Binder</span> program, in which Codex has to decide (1) which parts in the input can be converted to the target programming language (<span style="color:dimgrey;">grey clause</span> in figure), (2) the corresponding task API calls (<span style="color: royalblue">blue clause</span> in figure) to prompt Codex to resolve the other parts, and (3) where to insert the API calls in the <span class="dnerf">Binder</span> program.
             Next, <span class="dnerf">Binder</span> prompts Codex again to generate answers to the task API calls (given the generated task prompts), integrates the generated results back to the programming language, and executes the resulting programming language expression to derive the final answer.
             In this way, <span class="dnerf">Binder</span> enables flexible functionality integration to the programming language to improve its grammar coverage while requiring only few-shot exemplar annotations.
@@ -272,12 +271,12 @@
         <h2 class="title is-3">Results</h2>
         <div class="content has-text-justified">
           <p>
-            <span class="dnerf">Binder</span> achieves SOTA or comparable performance with <strong>only dozens of program annotations</strong> on three benchmarks!
+            <span class="dnerf">Binder</span> framework achieves <strong>SOTA</strong> or comparable performance with only <strong>dozens of</strong> program annotations <strong>without training</strong> on three benchmarks!
           </p>
         <ul>
-          <li>Achieve SOTA on <a href="https://ppasupat.github.io/WikiTableQuestions/">WikiTableQuestions</a>.</li>
-          <li>Achieve SOTA on <a href="https://tabfact.github.io/">TabFact</a>.</li>
-          <li>Outperform finetuned baselines on <a href="https://allenai.github.io/multimodalqa/">MultiModalQA</a>. </li>
+          <li>SOTA on <a href="https://ppasupat.github.io/WikiTableQuestions/">WikiTableQuestions</a>.</li>
+          <li>SOTA on <a href="https://tabfact.github.io/">TabFact</a>.</li>
+          <li>Comparable to SOTA on <a href="https://allenai.github.io/multimodalqa/">MultiModalQA</a>. </li>
         </ul>
         <img src="static/images/exp_results.png">
         <p>
