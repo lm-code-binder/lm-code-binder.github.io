@@ -190,6 +190,9 @@
                 </a>
               </span>
           </div>
+          <br>
+          <img src="static/images/main.jpg"> <!-- To .gif format-->
+
         </div>
       </div>
     </div>
@@ -203,6 +206,7 @@
         <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
                 type="video/mp4">
       </video>
+
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">Binder</span> is a training-free neural-symbolic framework that maps the task input to an executable <span class="dnerf">Binder</span> program that (1) allows binding API calls to GPT-3 Codex into SQL/Python, (2) is executed with SQL/Python Interpreter + GPT-3 Codex to derive the answer.
 
@@ -221,6 +225,15 @@
           <p>
             Though end-to-end neural approaches have recently been dominating NLP tasks in both performance and ease-of-use, they lack interpretability and robustness. We propose <span class="dnerf">Binder</span>, a training-free neural-symbolic framework that maps the task input to a program, which (1) allows binding a unified API of language model (LM) functionalities to a programming language (e.g., SQL, Python) to extend its grammar coverage and thus tackle more diverse questions, (2) adopts an LM as both the program parser and the underlying model called by the API during execution, and (3) requires only a few in-context exemplar annotations. Specifically, we employ GPT-3 Codex as the LM. In the parsing stage, with only a few in-context exemplars, Codex is able to identify the part of the task input that cannot be answerable by the original programming language, correctly generate API calls to prompt Codex to solve the unanswerable part, and identify where to place the API calls while being compatible with the original grammar. In the execution stage, Codex can perform versatile functionalities (e.g., commonsense QA, information extraction) given proper prompts in the API calls. <span class="dnerf">Binder</span> achieves state-of-the-art results on WikiTableQuestions and TabFact datasets, with explicit output programs that benefit human debugging. Note that previous best systems are all finetuned on tens of thousands of task-specific samples, while <span class="dnerf">Binder</span> only uses dozens of annotations as in-context exemplars without any training.
           </p>
+          Compare <span class="dnerf">Binder</span> with:
+        <ul>
+          <li><strong>End2end & Chain-of-Thought:</strong> <span style="float: right">More interpretable and robust!</span>
+            <br><span class="dnerf">Binder</span> program is deterministically executed to entail the prediction/answer. </li>
+          <li><strong>Semantic Parsing & Code Generation:</strong> <span style="float: right">Higher grammar coverage!</span>
+            <br><span class="dnerf">Binder</span> injects Codex functionalities into SQL/Python to handle more diverse questions. </li>
+          <li><strong>Neural-symbolic:</strong> <span style="float: right">Training-free and few annotations!</span>
+            <br><span class="dnerf">Binder</span> only requires a dozen of in-context exemplar annotations. </li>
+        </ul>
         </div>
       </div>
     </div>
@@ -310,7 +323,7 @@
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Prompt play. -->
-    Copy our prompt from<a href="https://github.com/HKUNLP/Binder/blob/main/templates/prompts/wikitq_binder.txt">here</a> with your input(table, question etc.) on <a href="https://beta.openai.com/playground">OpenAI Playground</a> to generate Binder program by yourself!
+    Copy our prompt from <a href="https://github.com/HKUNLP/Binder/blob/main/templates/prompts/wikitq_binder.txt">here</a> with your input (table, question etc.) on <a href="https://beta.openai.com/playground">OpenAI Playground</a> to generate Binder program by yourself!
   </div>
     <!--/ Prompt play. -->
 
